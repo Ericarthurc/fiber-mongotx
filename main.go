@@ -16,6 +16,7 @@ func main() {
 	godotenv.Load()
 
 	database.ConnectDb()
+	defer database.Client.Disconnect(database.Ctx)
 
 	app := fiber.New()
 
